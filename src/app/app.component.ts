@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
       <li [routerLink]="['/']" style="cursor: pointer">Home</li>
       <li [routerLink]="['/documents']" style="cursor: pointer">Documents</li>
       <li [routerLink]="['/proposals']" style="cursor: pointer">Proposals</li>
+      <li [routerLink]="['/proposals/new']" style="cursor: pointer">New Proposals</li>
     </ul>
     <router-outlet></router-outlet>
   
