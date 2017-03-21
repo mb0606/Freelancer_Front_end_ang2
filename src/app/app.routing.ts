@@ -11,7 +11,8 @@ const APP_ROUTES: Routes = [
   { path: 'home', component: HomePageComponent},
   { path: 'documents', component: DocumentsComponent},
   { path: 'proposals', component: ProposalListComponent},
-  { path: 'proposals/new', component: ProposalNewComponent}
+  { path: 'proposals/new', component: ProposalNewComponent},
+  
 
 ]
 
