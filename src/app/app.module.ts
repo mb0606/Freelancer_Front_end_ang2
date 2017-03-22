@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { routing } from './app.routing'
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { AppComponent } from './app.component';
 import { DocumentsComponent } from './documents/documents.component'
 import { HomePageComponent } from './homepage.component';
@@ -21,6 +23,7 @@ import { ProposalShowComponent } from './proposal/proposal-show.component'
     ProposalShowComponent
   ],
   imports: [
+    NgbModule.forRoot(),
     BrowserModule,
     FormsModule,
     HttpModule,

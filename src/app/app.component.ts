@@ -3,17 +3,31 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-    <h1>Navigation</h1>
-    <ul>
-      <li [routerLink]="['/']" style="cursor: pointer">Home</li>
-      <li [routerLink]="['/documents']" style="cursor: pointer">Documents</li>
-      <li [routerLink]="['/proposals']" style="cursor: pointer">Proposals</li>
-      <li [routerLink]="['/proposals/new']" style="cursor: pointer">New Proposals</li>
-    </ul>
-    <router-outlet></router-outlet>
-  
-  
-  
+<nav class="navbar navbar-fixed-top navbar-light bg-faded">
+	<div class='container'>	
+		<ul class="nav navbar-nav">
+			<li class='nav-item'>
+				<a class='nav-link' routerLink="/home">Home</a>
+			</li>
+			<li class='nav-item'>
+				<a class='nav-link' routerLink="/documents">Docs</a>
+			</li>
+			<li class="nav-item dropdown">
+				<div ngbDropdown class="d-inline-block dropdown-links">
+					<button class="btn btn-outline-primary" id="proposalDropdown" ngbDropdownToggle>
+						Proposals
+					</button>
+					<div class="dropdown-menu" aria-labelledby="proposalDropdown">
+						<a class="dropdown-item" routerLink="/proposals">Proposals</a>
+						<a class="dropdown-item" routerLink="/proposals/new">New Proposal</a>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+<router-outlet></router-outlet>
   `
 })
 export class AppComponent {

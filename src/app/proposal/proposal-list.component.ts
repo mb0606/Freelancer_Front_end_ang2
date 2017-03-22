@@ -7,8 +7,11 @@ import { Proposal } from './proposal'
   selector: 'app-proposal-list',
   template: `
     <h1>Proposal list </h1>
-    <div *ngFor='let prop of proposals'> {{prop.id}} - {{prop.customer}} - {{prop.portfolio_url}}</div>
-  
+    <div *ngFor='let prop of proposals'> 
+      <a routerLink="/proposal/{{prop.id}}" >
+      {{prop.id}} - {{prop.customer}} - {{prop.portfolio_url}}
+      </a>
+    </div>
   `
 })
 
