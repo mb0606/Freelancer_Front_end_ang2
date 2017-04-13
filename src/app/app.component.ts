@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
+  styleUrls: ['app.component.css'],
   template: `
 
 
 
 
-  <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <nav class="navbar navbar-toggleable-md navbar-light bg-faded nav-styles">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -36,7 +37,7 @@ import { Component } from '@angular/core';
   </div>
 </nav>
 
-<div class="container">
+<div class="container app-body">
   <router-outlet></router-outlet>
 </div>
   `
