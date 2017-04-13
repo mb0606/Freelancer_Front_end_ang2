@@ -13,7 +13,7 @@ import { Document } from './document'
     <div><a href="{{doc.file_url}}">Download file here</a></div>
     <p>{{doc.updated_at}}</p>
     <p>{{doc.image_url}}</p>
-    
+          
     </div>
   `
 
