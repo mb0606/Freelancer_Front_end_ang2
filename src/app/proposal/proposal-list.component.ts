@@ -5,13 +5,21 @@ import { Proposal } from './proposal'
 
 @Component({
   selector: 'app-proposal-list',
+  styleUrls: ['proposal-list.component.css'],
   template: `
-    <h1>Proposal list </h1>
-    <div *ngFor='let prop of proposals'> 
-      <a routerLink="/proposal/{{prop.id}}" >
-      {{prop.id}} - {{prop.customer}} - {{prop.portfolio_url}}
-      </a>
-    </div>
+	<div class="list-group">
+		<a class="list-group-item list-group-item-action active">
+			<h1 class="headline">Proposal List</h1>
+		</a>
+		<span *ngFor="let proposal of proposals" class="list-group-item list-group-item-action">
+			<a routerLink="/proposal/{{proposal.id}}" class="proposal-link">
+				<h5 class="list-group-item-heading">{{proposal.customer}}</h5>
+				<p class="list-group-item-text">
+					{{ proposal.hourly_rate * proposal.estimated_hours }}
+				</p>
+			</a>
+		</span>
+	</div><!-- list-group -->
   `
 })
 
