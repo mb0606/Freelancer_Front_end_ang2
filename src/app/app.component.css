@@ -21,7 +21,11 @@
   color:#e64758 !important;
 }
 
-#navbarNavDropdown a {
+.nav-styles a.dropdown-item {
   color: #1a1b22;
+}
+
+.nav-styles a.dropdown-item:hover {
+  color: #252830;
 }
 
