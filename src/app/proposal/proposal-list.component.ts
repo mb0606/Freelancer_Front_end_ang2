@@ -15,7 +15,7 @@ import { Proposal } from './proposal'
 			<a routerLink="/proposal/{{proposal.id}}" class="proposal-link">
 				<h5 class="list-group-item-heading">{{proposal.customer}}</h5>
 				<p class="list-group-item-text">
-					{{ proposal.hourly_rate * proposal.estimated_hours }}
+					{{ proposal.hourly_rate * proposal.estimated_hours | currency:'USD':true:'.2'}}
 				</p>
 			</a>
 		</span>
