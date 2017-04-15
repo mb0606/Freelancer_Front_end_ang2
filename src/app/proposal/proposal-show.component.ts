@@ -5,10 +5,15 @@ import { Proposal } from './proposal'
 
 @Component({
   selector: "app-proposal-show",
+  styleUrls: ['proposal-show.component.css'],
   template: `
-  <h1>Proposal Show</h1>
+	<div class="card proposal-card">
+		<h1>Proposal Show</h1>
 
-  <div>The id for this {{id}}</div>
+		<div>
+			The id for this proposal is: {{ id }}
+		</div>
+	</div><!-- card -->
   `
 })
 

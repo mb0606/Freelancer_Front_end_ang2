@@ -28,19 +28,19 @@ export class DocumentsComponent {
      description: "this is a description",
      file_url: "http://google.com",
      updated_at: "11/11/2017",
-     image_url: "https://www.vappingo.com/word-blog/wp-content/uploads/2011/01/paper2.jpg"
+     image_url: "http://tech.eu/wp-content/uploads/2015/02/teamwork1.jpg"
      },
     {title: "title 2",
      description: "this is a description",
      file_url: "http://google.com",
      updated_at: "11/11/2017",
-     image_url: "https://www.vappingo.com/word-blog/wp-content/uploads/2011/01/paper2.jpg"
+     image_url: "http://tech.eu/wp-content/uploads/2015/02/teamwork1.jpg"
      },
     {title: "title 3",
      description: "this is a description",
      file_url: "http://google.com",
      updated_at: "11/11/2017",
-     image_url: "https://www.vappingo.com/word-blog/wp-content/uploads/2011/01/paper2.jpg"
+     image_url: "http://tech.eu/wp-content/uploads/2015/02/teamwork1.jpg"
      }
   ]
 

@@ -3,11 +3,10 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-homepage',
   template: `
-    <h1>FreeLance Bootcamp Homepage</h1>
-    <p>This is the hompage </p>
-  
-  
-  
+	<div class="jumbotron">
+		<h1>Freelancer Dashboard</h1>	
+		<p class="lead">Everything you need to manage your freelance business.</p>
+	</div>
   `
 })
 export class HomePageComponent {
