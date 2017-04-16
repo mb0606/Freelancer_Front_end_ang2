@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { DocumentService } from './document.service'
+import { Observable } from 'rxjs/Rx'; 
+
 import { Document } from './document'
 
 
@@ -21,27 +24,19 @@ import { Document } from './document'
   `
 
 })
-export class DocumentsComponent {
+export class DocumentsComponent implements OnInit {
   pageTitle:string = "Documents Dashboard"
-  documents: Document[] = [
-    {title: "title 1",
-     description: "this is a description",
-     file_url: "http://google.com",
-     updated_at: "11/11/2017",
-     image_url: "http://tech.eu/wp-content/uploads/2015/02/teamwork1.jpg"
-     },
-    {title: "title 2",
-     description: "this is a description",
-     file_url: "http://google.com",
-     updated_at: "11/11/2017",
-     image_url: "http://tech.eu/wp-content/uploads/2015/02/teamwork1.jpg"
-     },
-    {title: "title 3",
-     description: "this is a description",
-     file_url: "http://google.com",
-     updated_at: "11/11/2017",
-     image_url: "http://tech.eu/wp-content/uploads/2015/02/teamwork1.jpg"
-     }
-  ]
+  documents: Document[] 
+  
+  constructor(private docService: DocumentService){}
 
+  ngOnInit(){
+    this.getDocuments()
+  }
+
+  getDocuments(){
+    this.docService.getDocuments()
+            .subscribe((resp) => this.documents = resp)
+    
+  }
 }
