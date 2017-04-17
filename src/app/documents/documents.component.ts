@@ -15,9 +15,9 @@ import { Document } from './document'
       <img class="rounded mx-auto d-block" src="{{doc.image_url}}" alt="Card image cap">
       <div class="card-block">
         <h4 class="card-title">{{doc.title}}</h4>
+        <p class="card-text"><small class="text-muted">Last Updated: {{doc.updated_at | date}}</small></p>
         <p class="card-text">{{doc.description}}</p>
         <div><a class="btn btn-large btn-primary" href="{{doc.file_url}}">Download file here</a></div>
-        <p class="card-text"><small class="text-muted">{{doc.updated_at}}</small></p>
       </div><!-- card-block -->        
     </div><!-- card  -->
     
@@ -25,18 +25,24 @@ import { Document } from './document'
 
 })
 export class DocumentsComponent implements OnInit {
-  pageTitle:string = "Documents Dashboard"
-  documents: Document[] 
+  pageTitle:string = "Documents Dashboard";
+  documents: Document[];
+  errorMessage: string;
   
   constructor(private docService: DocumentService){}
 
   ngOnInit(){
-    this.getDocuments()
+    let timer = Observable.timer(0,5000)
+    timer.subscribe(()=> this.getDocuments())
+    
   }
 
   getDocuments(){
     this.docService.getDocuments()
-            .subscribe((resp) => this.documents = resp)
+            .subscribe(
+              resp => this.documents = resp,
+              err  => this.errorMessage = <any>err
+              )
     
   }
 }
