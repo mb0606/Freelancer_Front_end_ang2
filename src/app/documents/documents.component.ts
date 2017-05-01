@@ -28,6 +28,7 @@ export class DocumentsComponent implements OnInit {
   pageTitle:string = "Documents Dashboard";
   documents: Document[];
   errorMessage: string;
+	mode = "Observable";
   
   constructor(private docService: DocumentService){}
 
