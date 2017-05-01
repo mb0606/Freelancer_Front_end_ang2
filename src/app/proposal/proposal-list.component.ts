@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { Router } from '@angular/router'
 import { Proposal } from './proposal'
 import { Observable } from 'rxjs/Rx'; 
 import { ProposalService } from './proposal.service'
@@ -14,7 +15,7 @@ import { ProposalService } from './proposal.service'
 			<h1 class="headline">Proposal List</h1>
 		</a>
 		<span *ngFor="let proposal of proposals" class="list-group-item list-group-item-action">
-			<a routerLink="/proposal/{{proposal.id}}" class="proposal-link">
+			<a (click)="goToShow(proposal)" class="proposal-link">
 				<h5 class="list-group-item-heading">{{proposal.customer}}</h5>
 				<p class="list-group-item-text">
 					{{ proposal.hourly_rate * proposal.estimated_hours | currency:'USD':true:'.2'}}
@@ -30,7 +31,11 @@ export class ProposalListComponent implements OnInit{
   errorMessage: string;
 	mode = "Observable";
 
- 	constructor(private proService: ProposalService){}
+
+ 	constructor(
+     private proService: ProposalService,
+     private router: Router 
+     ){}
 
 	ngOnInit(){
     let timer = Observable.timer(0,5000)
@@ -45,6 +50,11 @@ export class ProposalListComponent implements OnInit{
               err  => this.errorMessage = <any>err
               )
     
+  }
+
+  goToShow(proposal:Proposal): void {
+    let link = ['/proposal', proposal.id];
+    this.router.navigate(link)
   }
 
 
