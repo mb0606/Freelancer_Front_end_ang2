@@ -129,6 +129,14 @@ import { Proposal } from './proposal'
 										[(ngModel)]="proposal.client_email"
 						>
 					</div>
+					<button type="submit"
+									class="btn btn-outline-info btn-lg"
+									[disabled]="!proposalForm.form.valid" 
+									[hidden]="submitted"
+									(click)="submit()"
+					>
+						Generate Proposal
+					</button>
 
 				</form>
 
@@ -163,4 +171,10 @@ import { Proposal } from './proposal'
 
 export class ProposalNewComponent {
   proposal = new Proposal;
+	submitted: boolean = false;
+
+
+	submit(){
+		this.submitted = true
+	}
 }
