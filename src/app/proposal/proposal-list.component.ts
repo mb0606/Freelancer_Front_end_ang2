@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core'
-import { Router } from '@angular/router'
-import { Proposal } from './proposal'
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Proposal } from './proposal';
 import { Observable } from 'rxjs/Rx'; 
-import { ProposalService } from './proposal.service'
+import { ProposalService } from './proposal.service';
  
 
 

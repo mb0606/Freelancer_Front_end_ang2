@@ -1,9 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core'
-import { ActivatedRoute, Params} from '@angular/router'
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute, Params} from '@angular/router';
 import { Http, Response, Headers, RequestOptions} from '@angular/http';
 import { Observable } from 'rxjs/Rx';
-import { Proposal } from './proposal'
-import { ProposalService } from './proposal.service'
+import { Proposal } from './proposal';
+import { ProposalService } from './proposal.service';
 
 
 

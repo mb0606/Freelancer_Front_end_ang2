@@ -1,5 +1,7 @@
-import { Component } from '@angular/core'
-import { Proposal } from './proposal'
+import { Component } from '@angular/core';
+import { Proposal } from './proposal';
+import { Observable } from 'rxjs/Rx';
+import { ProposalService } from './proposal.service';
 
 @Component({
   selector: "app-proposal-new",
@@ -10,7 +12,7 @@ import { Proposal } from './proposal'
 		<div class="col-md-6">
 			<h1>Create a Proposal</h1>
 			
-				<form #proposalForm="ngForm">
+				<form (ngSubmit)="createProposal(proposal)" #proposalForm="ngForm">
 					<div class="form-group">
 						<label for="customer">Customer Name</label>
 						<input type="text"
@@ -133,10 +135,18 @@ import { Proposal } from './proposal'
 									class="btn btn-outline-info btn-lg"
 									[disabled]="!proposalForm.form.valid" 
 									[hidden]="submitted"
-									(click)="submit()"
+							
 					>
 						Generate Proposal
 					</button>
+					<div
+						[hidden]="!submitted"
+						class="alert alert-success"
+						role="alert"
+					>
+					Your proposal has been generated 
+					<a class="alert-link" routerLink="/proposals">View all proposals</a>
+					</div>
 
 				</form>
 
@@ -172,9 +182,20 @@ import { Proposal } from './proposal'
 export class ProposalNewComponent {
   proposal = new Proposal;
 	submitted: boolean = false;
+	
+	constructor(
+		private propService: ProposalService
+	){}
 
-
-	submit(){
+	createProposal(proposal){
 		this.submitted = true
+		this.propService.createProposal(proposal)
+					.subscribe(
+						data => { return true },
+						error => {
+							console.log("Error saving proposal")
+							return Observable.throw(error)
+						}
+					);
 	}
 }
